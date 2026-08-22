@@ -4,6 +4,8 @@ package main
 
 import (
 	"log/slog"
+	"net"
+	"strconv"
 
 	"github.com/tg123/sshpiper/libplugin"
 	"github.com/urfave/cli/v2"
@@ -33,8 +35,7 @@ func main() {
 				PasswordCallback: func(conn libplugin.ConnMetadata, password []byte) (*libplugin.Upstream, error) {
 					slog.Info("routing", "target", target)
 					return &libplugin.Upstream{
-						Host: host,
-						Port: int32(port),
+						Uri:  "tcp://" + net.JoinHostPort(host, strconv.Itoa(port)),
 						Auth: libplugin.CreatePasswordAuth(password),
 					}, nil
 				},
