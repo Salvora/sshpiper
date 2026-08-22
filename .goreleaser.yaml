@@ -297,7 +297,7 @@ archives:
       - sshpiperd_admin
 dockers:
   - image_templates:
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-amd64"
     use: buildx
     ids: 
       - sshpiperd
@@ -314,7 +314,7 @@ dockers:
       - cmd/sshpiperd-webadmin/internal/httpapi/web
     skip_push: "{{ .Env.SKIP_PUSH }}"
   - image_templates:
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-arm64"
     use: buildx
     ids: 
       - sshpiperd
@@ -329,7 +329,7 @@ dockers:
     skip_push: "{{ .Env.SKIP_PUSH }}"
   # full
   - image_templates:
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-amd64"
     use: buildx
     dockerfile: Dockerfile
     build_flag_templates:
@@ -338,7 +338,7 @@ dockers:
     extra_files: *docker_extra_files
     skip_push: "{{ .Env.SKIP_PUSH }}"
   - image_templates:
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-arm64"
     use: buildx
     goarch: arm64
     dockerfile: Dockerfile
@@ -348,26 +348,26 @@ dockers:
     extra_files: *docker_extra_files
     skip_push: "{{ .Env.SKIP_PUSH }}"
 docker_manifests:
-  - name_template: "ghcr.io/Salvora/sshpiperd:latest"
+  - name_template: "ghcr.io/salvora/sshpiperd:latest"
     image_templates:
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-amd64"
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-arm64"
     skip_push: "{{ .Env.SKIP_PUSH }}"
-  - name_template: "ghcr.io/Salvora/sshpiperd:v{{ .Version }}"
+  - name_template: "ghcr.io/salvora/sshpiperd:v{{ .Version }}"
     image_templates:
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-amd64"
-      - "ghcr.io/Salvora/sshpiperd:v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:v{{ .Version }}-arm64"
     skip_push: "{{ .Env.SKIP_PUSH }}"
   # full
-  - name_template: "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}"
+  - name_template: "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}"
     image_templates:
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-amd64"
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-arm64"
     skip_push: "{{ .Env.SKIP_PUSH }}"
-  - name_template: "ghcr.io/Salvora/sshpiperd:full"
+  - name_template: "ghcr.io/salvora/sshpiperd:full"
     image_templates:
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-amd64"
-      - "ghcr.io/Salvora/sshpiperd:full-v{{ .Version }}-arm64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-amd64"
+      - "ghcr.io/salvora/sshpiperd:full-v{{ .Version }}-arm64"
     skip_push: "{{ .Env.SKIP_PUSH }}"
 checksum:
   name_template: "checksums.txt"
